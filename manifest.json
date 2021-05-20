@@ -3,19 +3,25 @@
     "id": "ihatemoney",
     "packaging_format": 1,
     "description": {
-        "en": "A simple shared budget manager web application",
-        "fr": "Une application web de comptes partagés à plusieurs"
+        "en": "A web application made to ease shared budget management.",
+        "fr": "Une application web de comptes partagés à plusieurs."
     },
     "url": "http://ihatemoney.org/",
     "version": "4.1.5~ynh2",
-    "license": "free",
+    "license": "Beerware",
+    "upstream": {
+        "license": "MIT",
+        "website": "https://github.com/spiral-project/ihatemoney",
+        "admindoc": "https://ihatemoney.readthedocs.org/",
+        "code": "https://github.com/spiral-project/ihatemoney"
+    },
     "maintainer": {
         "name": "Jocelyn Delalande",
         "email": "jocelyn@crapouillou.net",
         "url": "https://jocelyn.delalande.fr"
     },
     "requirements": {
-        "yunohost": ">= 3.8"
+        "yunohost": ">= 4.1.0"
     },
     "multi_instance": false,
     "services": ["nginx", "mysql", "postfix"],
@@ -24,28 +30,20 @@
             {
                 "name": "domain",
                 "type": "domain",
-                "ask": {
-                    "en": "Choose a domain for ihatemoney",
-                    "fr": "Choisir un domaine pour ihatemoney"
-                },
                 "example": "example.com"
             },
             {
                 "name": "path",
                 "type": "path",
-                "ask": {
-                    "en": "Choose a path for ihatemoney",
-                    "fr": "Choisir un chemin pour ihatemoney"
-                },
-                "example": "/example",
+                "example": "/ihatemoney",
                 "default": "/ihatemoney"
             },
             {
                 "name": "is_public",
                 "type": "boolean",
-                "ask": {
-                    "en": "Is it a public website ? (even if service is public, each project is protected by a password)",
-                    "fr": "Le service est-il public ? (même dans ce cas, chaque projet est protégé par un mot de passe)"
+                "help": {
+                    "en": "Each ihatemoney project is protected by a password anyways",
+                    "fr": "Les projets ihatemoney sont protégés par un mot de passe dans tous les cas"
                 },
                 "default": true
             }
