@@ -22,6 +22,7 @@ final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 db_user=$db_name
 db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
+secret_key=$(ynh_app_setting_get --app=$app --key=secret_key)
 
 #=================================================
 # CHECK VERSION
@@ -90,6 +91,9 @@ if [[ "$upgrade_from_opt" == "true" ]]; then
 
 	final_path=/var/www/$app
 	ynh_app_setting_set --app=$app --key=final_path --value=$final_path
+
+	secret_key=$(ynh_string_random --length 32)
+	ynh_app_setting_set --app=$app --key=secret_key --value=$secret_key
 fi
 
 #=================================================

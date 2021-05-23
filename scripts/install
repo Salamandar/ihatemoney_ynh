@@ -107,6 +107,8 @@ chmod 644 "$final_path/gunicorn.conf.py"
 
 # Constant for ihatemoney.cfg
 secret_key=$(ynh_string_random --length 32)
+ynh_app_setting_set --app=$app --key=secret_key --value=$secret_key
+
 mails_sender="no-reply@$domain"
 sub_path_only="$(if [[ "$path_url" == "/" ]]; then echo '# ' ; else echo ''; fi)"
 
