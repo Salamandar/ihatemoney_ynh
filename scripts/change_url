@@ -118,8 +118,10 @@ path="$new_path"
 
 ynh_backup_if_checksum_is_different --file="$final_path/ihatemoney.cfg"
 ynh_add_config --template ../conf/ihatemoney.cfg --destination "$final_path/ihatemoney.cfg"
-chmod 600 "$final_path/ihatemoney.cfg"
 
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
 
 #=================================================
 # GENERIC FINALISATION

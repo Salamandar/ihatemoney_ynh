@@ -94,6 +94,10 @@ if [[ "$upgrade_from_opt" == "true" ]]; then
 
 	secret_key=$(ynh_string_random --length 32)
 	ynh_app_setting_set --app=$app --key=secret_key --value=$secret_key
+
+	db_name=ihatemoney
+	db_user=$db_name
+	ynh_app_setting_set --app=$app --key=db_name --value=$db_name
 fi
 
 #=================================================
