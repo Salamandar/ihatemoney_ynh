@@ -25,6 +25,7 @@ db_user=$db_name
 db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
 secret_key=$(ynh_app_setting_get --app=$app --key=secret_key)
 mails_sender="no-reply@$domain"
+sub_path_only="$(if [[ "$new_path" == "/" ]]; then echo '# ' ; else echo ''; fi)"
 
 #=================================================
 # LOAD SETTINGS
